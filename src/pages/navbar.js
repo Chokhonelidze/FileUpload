@@ -5,9 +5,7 @@ function NavBar(...props) {
   let user = props[0].user;
   var [data,setData] = React.useState([
     { href: "#/fileUpload/", name: "Upload File", active: false ,info:"Click to upload pdf documents"},
-    { href: "#/withdraw/", name: "Withdraw", active: false,info:"Get Money"},
-    { href: "#/balance/", name: "Balance", active: false,info:"Check your Balance"},
-    { href: "#/alldata/", name: "AllData", active: false, info:"See All Information"},
+    { href: "#/viewFiles/", name: "View all Files", active: false,info:"view files"},
     { href: "#/CreateUser/", name: "Create User", active: false,info:"Create new User" },
   ]);
   var [rightMenu,setRightMenu] = React.useState([

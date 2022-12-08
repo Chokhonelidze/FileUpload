@@ -6,6 +6,7 @@ import NavBar from './pages/navbar';
 import {Home} from './pages/home';
 import { CreateUser } from './pages/createUser';
 import {FileUploadPage} from "./pages/fileUpload";
+import {ViewAllDocs} from "./pages/viewAll";
 import Login from './pages/login';
 
 
@@ -22,6 +23,7 @@ function App() {
         <Route path = "/createUser" element = {<CreateUser />} />
         <Route path = "/login" element = {<Login />} />
         <Route path = "/fileUpload" element ={<FileUploadPage />} />
+        <Route path = "/viewFiles" element ={<ViewAllDocs />} />
       </Routes>
         
       </div>
