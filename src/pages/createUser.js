@@ -2,6 +2,7 @@
 import {FormBuilder} from "../components/FormBuilder"
 import React from "react";
 import {UserContext} from "../App";
+import {query} from "../functions/queries";
 
 function CreateUser(...props) {
     let [user,setUser] = React.useContext(UserContext);
@@ -16,12 +17,14 @@ function CreateUser(...props) {
         if(password !== password2){
             setErrors(...errors,'Passwords does not match'); 
         }
-
-
-        if(!errors) {
-
-        }
-
+        const q = `
+        mutation Mutation($user: createUser!) {
+            createUser(user: $user)
+          }
+        `;
+        query(q,{user:{name:name,email:email,password:password,role:Number(role)}},user,()=>{
+            alert("success");
+        })
     }
     let obj = [
         {
@@ -59,7 +62,7 @@ function CreateUser(...props) {
         {
             key:'option',
             label:'role',
-            options:[[1,'User'],[0,'Admin']],
+            options:[[0,'User'],[1,'Admin']],
             type:'options',
             val:[role,setRole],
         },

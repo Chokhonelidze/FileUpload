@@ -7,6 +7,7 @@ import {Home} from './pages/home';
 import { CreateUser } from './pages/createUser';
 import {FileUploadPage} from "./pages/fileUpload";
 import {ViewAllDocs} from "./pages/viewAll";
+import {PdfPage} from "./components/pdfViewer";
 import Login from './pages/login';
 
 

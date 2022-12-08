@@ -2,11 +2,13 @@ import React from "react";
 import {query} from "../functions/queries";
 import {UserContext} from "../App";
 import {FileCard} from "../components/cards";
+import {PdfPage} from "../components/pdfViewer";
 import "./viewAll.css";
 export function ViewAllDocs() {
     let [user, setUser] = React.useContext(UserContext);
     let [allUsers,setAllUsers] = React.useState([]);
     let [data,setData] = React.useState([]);
+    let [Doc,setDoc] = React.useState(null);
     React.useEffect(()=>{
         let q = `
         query Query($query: QueryInput) {
@@ -46,9 +48,10 @@ export function ViewAllDocs() {
         header="File"
         id = {val.id}
         allUsers = {allUsers}
+        setDocument = {setDoc}
         />
     });
 
 
-    return <div className="mid_container">{view}</div>
+    return <div className="mid_container">{!Doc?<>{view}</>:<PdfPage id={Doc} clear={setDoc} />}</div>
 }

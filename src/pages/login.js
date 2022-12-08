@@ -65,7 +65,7 @@ function Login(){
           "Origin, X-Requested-With, Content-Type, Accept",
         },
         body: JSON.stringify({
-          "token":user.key.result.accessToken
+          "token":user.accessToken
         }),
       }).then(setUser(null));
     }

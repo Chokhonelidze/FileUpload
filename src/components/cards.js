@@ -29,7 +29,9 @@ function Card(props) {
     const Display = () => {
       return (
         <>
-        <div className="card-header">{props.header}</div>
+        <div className="card-header" onClick={()=>{
+          props.setDocument(props.id);
+        }}>{props.header}</div>
         <div className="card-body">
           {props.title && <h6 className="card-title">{props.title}</h6>}
           {props.text && <p className="card-text">{props.text}</p>}
@@ -100,7 +102,7 @@ function Card(props) {
       close={()=>{
         setSettng(false);
       }} />}
-      {!setting && user.user.role === "1" && (<div onClick={()=>{setSettng(true)}}>⚙️</div>)}
+      {!setting && user.user.role === "1" && (<div onClick={()=>{setSettng(true)}} style={{cursor:"pointer"}}>⚙️</div>)}
     </div>
     );
   }

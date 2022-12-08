@@ -2,7 +2,6 @@ import {UserContext} from "../App";
 import React from "react";
 function Home() {
     const [user,setUser] = React.useContext(UserContext);
-    console.log(user);
-    return (<div><h2>user ={user?.user?.email}</h2></div>);
+    return (<div><h2>Welcome {user?.user?.name}</h2><h3>Case Study</h3></div>);
 }
 export {Home} ;

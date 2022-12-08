@@ -13,9 +13,11 @@ export async function query(q,values,user,callback) {
       Accept: "application/json",
       "Access-Control-Allow-Origin": "*",
       "Access-Control-Allow-Headers":
-      "Origin, X-Requested-With, Content-Type, Accept",
-      "authorization":`${user.user.name} ${user.accessToken}`
+      "Origin, X-Requested-With, Content-Type, Accept"
     };
+    if(user) {
+      headers["authorization"] = `${user.user.name} ${user.accessToken}`;
+    }
     await fetch(server, {
         method: "POST",
         headers: headers,
