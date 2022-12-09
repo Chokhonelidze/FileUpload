@@ -36,3 +36,20 @@
     transform: rotate(360deg);
   }
 }
+
+@media screen and (min-width:900px) {
+  .login{
+    position: absolute;
+    right: 10px;
+  }
+  .login li {
+    z-index: 2;
+  }
+  .loggedUser{
+    position: absolute;
+    right:90px;
+    top: 15px;
+    color: green;
+    z-index: 1;
+  }
+}

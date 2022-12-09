@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+
 import './App.css';
 import * as React from "react";
 import { HashRouter, Routes, Route, Link } from "react-router-dom";
@@ -7,7 +7,6 @@ import {Home} from './pages/home';
 import { CreateUser } from './pages/createUser';
 import {FileUploadPage} from "./pages/fileUpload";
 import {ViewAllDocs} from "./pages/viewAll";
-import {PdfPage} from "./components/pdfViewer";
 import Login from './pages/login';
 
 
@@ -17,7 +16,7 @@ function App() {
   return (
     <UserContext.Provider value={[user,setUser]}>
     <HashRouter>
-      <NavBar {...user} />
+      <NavBar user = {user} />
       <div className='container' style={{padding:"20px"}}>
       <Routes>
         <Route path = "/" exact element = {<Home/>} />

@@ -1,7 +1,8 @@
 .small_card {
     margin: 5px;
     padding: 10px;
-    max-width: 200px;
+    width: 200px;
+    min-height: 200px;
 }
 
 .mid_container {
@@ -9,11 +10,13 @@
     flex-flow:wrap;
     justify-content: center;
     align-items: center;
-    margin-top: 160px;
+    margin-top: 30px;
 }
-.mid_container_list {
-    display: flex;
-    flex-direction:column;
-    justify-content: center;
-    align-items: center;
+
+.searchInput {
+    width: 70%;
+    margin-top: 10px;
+    float: left;
+    height: 48px;
+    z-index: 101;
 }

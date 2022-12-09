@@ -6,7 +6,6 @@ import {query} from "../functions/queries";
 
 function CreateUser(...props) {
     let [user,setUser] = React.useContext(UserContext);
-
     let [email,setEmail] = React.useState('');
     let [name,setName] = React.useState('');
     let [password,setPassword] = React.useState('');

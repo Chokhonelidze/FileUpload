@@ -4,6 +4,7 @@ import { query } from "../functions/queries";
 import { useDropzone } from "react-dropzone";
 
 function FileUploadPage() {
+
   const [selectedFile, setSelectedFile] = React.useState();
   const [isSelected, setIsSelected] = React.useState(false);
   let [user, setUser] = React.useContext(UserContext);
@@ -13,6 +14,7 @@ function FileUploadPage() {
     reader.onloadend = ()=> {
         let data = reader.result;
         console.log(acceptedFiles[0]);
+
         let file = {    
             filename:acceptedFiles[0].name,
             size: acceptedFiles[0].size.toString(),
@@ -23,16 +25,12 @@ function FileUploadPage() {
      
     }
     reader.readAsDataURL(acceptedFiles[0]);
-    console.log(selectedFile);
     setIsSelected(true);
   }, [selectedFile]);
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
-
-
   const submit = async () => {
     // const formData = new FormData();
     //formData.append('File', selectedFile);
-    console.log(selectedFile);
     const q =`
     mutation SingleUpload($file: FileInput!) {
         singleUpload(file: $file) {
@@ -50,6 +48,7 @@ function FileUploadPage() {
 
   return (
     <div>
+      {user?.user? <>
      <div {...getRootProps()}>
       <input {...getInputProps()} />
         {isDragActive ? (
@@ -73,6 +72,7 @@ function FileUploadPage() {
           submit
         </button>
       </div>
+      </>:<></>}
     </div>
   );
 }

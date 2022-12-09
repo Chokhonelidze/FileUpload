@@ -1,15 +1,19 @@
 import React from "react";
 import Tooltip from '@mui/material/Tooltip';
 
-function NavBar(...props) {
-  let user = props[0].user;
+function NavBar(props) {
+  
+  let user = props?.user?.user;
+
+
   var [data,setData] = React.useState([
     { href: "#/fileUpload/", name: "Upload File", active: false ,info:"Click to upload pdf documents"},
     { href: "#/viewFiles/", name: "View all Files", active: false,info:"view files"},
     { href: "#/CreateUser/", name: "Create User", active: false,info:"Create new User" },
   ]);
+  
   var [rightMenu,setRightMenu] = React.useState([
-    { href: '#/login/', name: user&&user.name?"Logout":"Login", active: false, info:"Login with users"},
+    { href: '#/login/', name:"Login" , active: false, info:"Login with users"},
   ]);
 
   function activate(e){
@@ -62,6 +66,9 @@ function NavBar(...props) {
           act ='active';
         }
         return "nav-link "+act;
+      }
+      if(item.name ==='Login' && user?.name) {
+        item.name = "Logout";
       }
       return (
         <li className="nav-item" key={index}>
